@@ -12,7 +12,7 @@ namespace TallerAPI.Models
         public string? marca { get; set; }
         public string? modelo { get; set; }
         public string? color { get; set; }
-        public string? anio { get; set; }
+        public int? anio { get; set; }
         public string? numPlaca { get; set; }
         public string? numVIN { get; set; }
         public string? descripcionReparacion { get; set; }
