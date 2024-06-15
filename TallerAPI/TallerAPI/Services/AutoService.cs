@@ -6,11 +6,11 @@ using MongoDB.Driver;
 using TallerAPI.Models;
 
 
-public class TallerServices
+public class AutoService
 {
     private readonly IMongoCollection<Automovil> _autoCollections;
 
-    public TallerServices(IOptions<AutoDbSettings> autoDatabaseSettings)
+    public AutoService(IOptions<AutoDbSettings> autoDatabaseSettings)
     {
         var mongoClient = new MongoClient(
             autoDatabaseSettings.Value.ConnectionString);
