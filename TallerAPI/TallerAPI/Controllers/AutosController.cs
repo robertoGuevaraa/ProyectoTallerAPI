@@ -45,7 +45,7 @@ namespace TallerAPI.Controllers
             }
             return View(automovil);
         }
-        [HttpPut]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, Automovil automovil) {
             if (!ModelState.IsValid)
