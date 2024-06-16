@@ -35,8 +35,7 @@ namespace TallerAPI.Controllers
             await _autoService.CreateAsync(automovil);
             return RedirectToAction(nameof(Index));
         }
-
-        public async Task<IActionResult> Edit(string id)
+        /*public async Task<IActionResult> Edit(string id)
         {
             var automovil = await _autoService.GetAsync(id);
             if (automovil is null)
@@ -55,7 +54,36 @@ namespace TallerAPI.Controllers
             await _autoService.UpdateAsync(id, automovil);
             return RedirectToAction(nameof(Index));
         }
+        */
+        public async Task<IActionResult> Edit(string id)
+        {
+            var automovil = await _autoService.GetAsync(id);
+            if (automovil == null)
+            {
+                return NotFound();
+            }
+            return View(automovil);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(string id, Automovil automovil)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(automovil);
+            }
 
+            var existingAutomovil = await _autoService.GetAsync(id);
+            if (existingAutomovil == null)
+            {
+                return NotFound();
+            }
+
+            automovil.id = id;
+
+            await _autoService.UpdateAsync(id, automovil);
+            return RedirectToAction(nameof(Index));
+        }
         public async Task<IActionResult> Delete(String id)
         {
             var automovil = await _autoService.GetAsync(id);
