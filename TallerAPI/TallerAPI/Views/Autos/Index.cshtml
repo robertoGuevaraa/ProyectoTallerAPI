@@ -51,54 +51,83 @@
                     color: white;
                 }
 
-    .table thead tr:first-child th:first-child {
-        border-top-left-radius: 10px;
-    }
-
-    .table thead tr:first-child th:last-child {
-        border-top-right-radius: 10px;
-    }
-
-    .table tbody tr:last-child td:first-child {
-        border-bottom-left-radius: 10px;
-    }
-
-    .table tbody tr:last-child td:last-child {
-        border-bottom-right-radius: 10px;
-    }
-
-    .table td a.btn-primary {
-        background-color: #007BFF;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 15px;
-        transition: background-color 0.3s;
-    }
-
-    .table td a.btn-info {
-        background-color: #17A2B8;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 15px;
-        transition: background-color 0.3s;
-    }
-
-    .table td a.btn-danger {
-        background-color: #DC3545;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 15px;
-        transition: background-color 0.3s;
-    }
-
-        .table td a.btn-primary:hover,
-        .table td a.btn-info:hover,
-        .table td a.btn-danger:hover {
-            background-color: #0056b3;
+        .table thead tr:first-child th:first-child {
+            border-top-left-radius: 10px;
         }
+
+        .table thead tr:first-child th:last-child {
+            border-top-right-radius: 10px;
+        }
+
+        .table tbody tr:last-child td:first-child {
+            border-bottom-left-radius: 10px;
+        }
+
+        .table tbody tr:last-child td:last-child {
+            border-bottom-right-radius: 10px;
+        }
+
+        .table td a.btn-primary {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+        }
+
+        .table td a.btn-info {
+            background-color: #17A2B8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+        }
+
+        .table td a.btn-danger {
+            background-color: #DC3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+        }
+
+            .table td a.btn-primary:hover,
+            .table td a.btn-info:hover,
+            .table td a.btn-danger:hover {
+                background-color: #0056b3;
+            }
+
+    .search-container {
+        text-align: right;
+        margin-bottom: 20px;
+    }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+            margin-right: 10px;
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .search-container button:hover {
+                background-color: #0056b3;
+            }
 </style>
 
 @model IEnumerable<TallerAPI.Models.Automovil>
@@ -106,9 +135,18 @@
 @{
     ViewData["Title"] = "Menú";
 }
+
+<div class="search-container">
+    <form asp-action="Index" method="get">
+        <input type="text" name="searchId" placeholder="Buscar por ID" />
+        <button type="submit">Buscar</button>
+    </form>
+</div>
+
 <table class="table">
     <thead>
         <tr>
+            <th>@Html.DisplayNameFor(model => model.id)</th>
             <th>@Html.DisplayNameFor(model => model.fechaIngreso)</th>
             <th>@Html.DisplayNameFor(model => model.nombrePropietario)</th>
             <th>@Html.DisplayNameFor(model => model.marca)</th>
@@ -125,6 +163,8 @@
         @foreach (var item in Model)
         {
             <tr>
+
+                <td>@Html.DisplayFor(modelItem => item.id)</td>
                 <td>@Html.DisplayFor(modelItem => item.fechaIngreso)</td>
                 <td>@Html.DisplayFor(modelItem => item.nombrePropietario)</td>
                 <td>@Html.DisplayFor(modelItem => item.marca)</td>

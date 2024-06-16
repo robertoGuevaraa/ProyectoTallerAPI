@@ -10,18 +10,7 @@ namespace TallerAPI.Controllers
         public AutosController(AutoService autoService) =>
             _autoService = autoService;
 
-        public async Task<IActionResult> Index() =>
-            View(await _autoService.GetAsync());
-
-        public async Task<IActionResult> Details(string id)
-        {
-            var automovil = await _autoService.GetAsync(id);
-            if (automovil == null)
-            {
-                return NotFound();
-            }
-            return View(automovil);
-        }
+        
 
         public IActionResult Create() => View();
         [HttpPost]
@@ -74,5 +63,35 @@ namespace TallerAPI.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
+        public async Task<IActionResult> Index(string searchId)
+        {
+            IEnumerable<Automovil> automoviles;
+            if (!String.IsNullOrEmpty(searchId))
+            {
+                var automovil = await _autoService.GetAsync(searchId);
+                automoviles = automovil != null ? new List<Automovil> { automovil } : new List<Automovil>();
+            }
+            else
+            {
+                automoviles = await _autoService.GetAsync();
+            }
+
+            return View(automoviles);
+        }
+
+        public async Task<IActionResult> Details(string id)
+        {
+            var automovil = await _autoService.GetAsync(id);
+            if (automovil == null)
+            {
+                return NotFound();
+            }
+            return View(automovil);
+        }
     }
+
+
+
 }
+
