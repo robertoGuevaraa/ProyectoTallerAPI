@@ -39,7 +39,7 @@ namespace TallerAPI.Controllers
         public async Task<IActionResult> Edit(string id)
         {
             var automovil = await _autoService.GetAsync(id);
-            if (automovil == null)
+            if (automovil is null)
             {
                 return NotFound();
             }
@@ -70,6 +70,7 @@ namespace TallerAPI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
+            await _autoService.RemoveAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
