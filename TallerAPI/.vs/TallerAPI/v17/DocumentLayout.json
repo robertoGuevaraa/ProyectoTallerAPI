@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Proyectos\\GitHub\\ProyectoTallerAPI\\TallerAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A8F0910E-E8B9-4206-8404-06B40B34C386}|TallerAPI\\TallerAPI.csproj|d:\\proyectos\\github\\proyectotallerapi\\tallerapi\\tallerapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8F0910E-E8B9-4206-8404-06B40B34C386}|TallerAPI\\TallerAPI.csproj|solutionrelative:tallerapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Proyectos\\GitHub\\ProyectoTallerAPI\\TallerAPI\\TallerAPI\\Program.cs",
+              "RelativeDocumentMoniker": "TallerAPI\\Program.cs",
+              "ToolTip": "D:\\Proyectos\\GitHub\\ProyectoTallerAPI\\TallerAPI\\TallerAPI\\Program.cs",
+              "RelativeToolTip": "TallerAPI\\Program.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:55:12.669Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
